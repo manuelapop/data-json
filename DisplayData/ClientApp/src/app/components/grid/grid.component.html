@@ -1,0 +1,32 @@
+<div class="GridData">
+  <h6>Please select from the dropdown the type of data to be fetched from the location "http://jsonplaceholder.typicode.com/".</h6>
+  <div class="form-row">
+    <div class="col-sm-2 col-form-label">
+      <label for="select">
+        Select Data to fetch
+      </label>
+    </div>
+    <div class="col-sm-4">
+      <ng-select [items]="selections"
+                 bindLabel="name"
+                 (change)="onChange($event)"
+                 bindValue="id"
+                 placeholder="Select data type"
+                 [(ngModel)]="selectOneVal">
+      </ng-select>
+    </div>
+    </div>
+    <div class="angularGrid">
+      <div class="table-responsive">
+            <ag-grid-angular style="width: 100%; height: 400px;" class="ag-theme-balham"
+                   [rowData]="rowData"
+                   [defaultColDef]="defaultColDef"
+                   (gridReady)="onGridReady($event)"
+                   [floatingFilter]="true"
+                   [pagination]="true"
+                   [paginationPageSize]="paginationPageSize"
+                   [columnDefs]="columnDefs">
+            </ag-grid-angular>
+      </div>
+    </div>
+  </div>
